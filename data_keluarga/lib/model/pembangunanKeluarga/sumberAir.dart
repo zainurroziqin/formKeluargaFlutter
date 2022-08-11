@@ -1,8 +1,12 @@
-class YaHamil{
+class SumberAir{
   static final List<String> cities = [
-    '1. Ya, Ingin hamil saat itu',
-    '2. Ingin Hamil nanti/kemudian',
-    '3. Tidak ingin anak lagi',
+    '1. Air Kemasan/Isi ulang',
+    '2. Ledeng/PAM',
+    '3. Sumur Bor',
+    '4. Sumur terlindung',
+    '5. Sumur Tidak Terlindung',
+    '6. Air permukaan(Sungai, Danau, dll',
+    '7. Air hujan'
   ];
 
   static List<String> getSuggestions(String query) {

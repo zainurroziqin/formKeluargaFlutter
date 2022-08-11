@@ -1,8 +1,10 @@
-class YaHamil{
+class JenisLantai{
   static final List<String> cities = [
-    '1. Ya, Ingin hamil saat itu',
-    '2. Ingin Hamil nanti/kemudian',
-    '3. Tidak ingin anak lagi',
+    '1. Keramik/Granit/Marmer/Ubin/Tegel/Teraso',
+    '2. Semen',
+    '3. Kayu/Papan',
+    '4. Bambu',
+    '5. Tanah'
   ];
 
   static List<String> getSuggestions(String query) {

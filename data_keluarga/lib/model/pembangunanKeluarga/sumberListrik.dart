@@ -1,8 +1,10 @@
-class YaHamil{
+class SumberListrik{
   static final List<String> cities = [
-    '1. Ya, Ingin hamil saat itu',
-    '2. Ingin Hamil nanti/kemudian',
-    '3. Tidak ingin anak lagi',
+    '1. Listrik Pribadi 900 Watt',
+    '2. Listrik Pribadi > 900 Watt',
+    '3. Genset/Solar cell',
+    '4. Listrik Bersama',
+    '5. Non Listrik'
   ];
 
   static List<String> getSuggestions(String query) {
