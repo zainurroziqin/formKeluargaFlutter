@@ -6,13 +6,19 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../config/AppColor.dart';
 import '../model/pembangunanKeluarga/atamRumah.dart';
+import '../model/pembangunanKeluarga/bahanBakar.dart';
+import '../model/pembangunanKeluarga/informasi.dart';
 import '../model/pembangunanKeluarga/jenisDinding.dart';
+import '../model/pembangunanKeluarga/kepemilikanRumah.dart';
+import '../model/pembangunanKeluarga/media.dart';
 import '../model/pembangunanKeluarga/sumberAir.dart';
 import '../model/pembangunanKeluarga/wc.dart';
+import 'form_coba.dart';
 
 class FormPembangunanKeluarga extends StatefulWidget {
   const FormPembangunanKeluarga({Key? key}) : super(key: key);
@@ -68,6 +74,8 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
   String selectedValue18b = 'Tidak';
   String selectedValue18c = 'Tidak';
   String selectedValue18d = 'Tidak';
+  String selectedValue29 = 'Tidak';
+  String selectedValue31 = 'Tidak';
   String? selectedValue19,
       selectedValue20,
       selectedValue21,
@@ -76,9 +84,8 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
       selectedValue24,
       selectedValue27,
       selectedValue28,
-      selectedValue29,
       selectedValue30,
-      selectedValue31;
+      selectedValue32;
 
   bool vS1 = true;
   bool vS2 = false;
@@ -90,6 +97,14 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
   bool vS8 = false;
   bool vS9 = false;
   bool vS10 = false;
+  bool vS11 = false;
+  bool vS12 = false;
+  bool vS13 = false;
+
+  bool vP30 = false;
+  bool vP32 = false;
+
+  bool vPLainnya = false;
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +151,18 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
           Visibility(
             child: slide9(context),
             visible: vS9,
+          ),
+          Visibility(
+            child: slide10(context),
+            visible: vS10,
+          ),
+          Visibility(
+            child: slide11(context),
+            visible: vS11,
+          ),
+          Visibility(
+            child: slide12(context),
+            visible: vS12,
           )
         ],
       )),
@@ -1615,6 +1642,513 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
     );
   }
 
+  Column slide10(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 8.h,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 5.h,
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5), topRight: Radius.circular(5))),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            // height: 720.h,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3))
+            ], color: Colors.white),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Form(
+                    key: _formKey10,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          'Pembangunan Keluarga',
+                          style: GoogleFonts.inter(
+                              fontSize: 18.sp,
+                              color: AppColor.textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Text('Harap Mengisi form ini dengan benar'),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 1.h,
+                          decoration: BoxDecoration(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        pertanyaan25(),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        pertanyaan26(),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                width: 120.w,
+                                child: Material(
+                                  color: Color(0XFF767AE7),
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        vS10 = false;
+                                        vS9 = true;
+                                      });
+                                    },
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                      ),
+                                      child: Center(
+                                        child: Text('BACK',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6!
+                                                .copyWith(color: Colors.white)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 24.w,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                width: 120.w,
+                                child: Material(
+                                  color: Color(0XFF767AE7),
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    onTap: () {
+                                      if (this
+                                          ._formKey10
+                                          .currentState!
+                                          .validate()) {
+                                        this._formKey10.currentState!.save();
+                                        setState(() {
+                                          vS10 = false;
+                                          vS11 = true;
+                                        });
+                                      }
+                                    },
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                      ),
+                                      child: Center(
+                                        child: Text('NEXT',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6!
+                                                .copyWith(color: Colors.white)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Column slide11(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 8.h,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 5.h,
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5), topRight: Radius.circular(5))),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            // height: 720.h,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3))
+            ], color: Colors.white),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Form(
+                    key: _formKey11,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          'Pembangunan Keluarga',
+                          style: GoogleFonts.inter(
+                              fontSize: 18.sp,
+                              color: AppColor.textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Text('Harap Mengisi form ini dengan benar'),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 1.h,
+                          decoration: BoxDecoration(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        pertanyaan27(),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        pertanyaan28(),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                width: 120.w,
+                                child: Material(
+                                  color: Color(0XFF767AE7),
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        vS11 = false;
+                                        vS10 = true;
+                                      });
+                                    },
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                      ),
+                                      child: Center(
+                                        child: Text('BACK',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6!
+                                                .copyWith(color: Colors.white)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 24.w,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                width: 120.w,
+                                child: Material(
+                                  color: Color(0XFF767AE7),
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    onTap: () {
+                                      if (this
+                                          ._formKey11
+                                          .currentState!
+                                          .validate()) {
+                                        this._formKey11.currentState!.save();
+                                        setState(() {
+                                          vS11 = false;
+                                          vS12 = true;
+                                        });
+                                      }
+                                    },
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                      ),
+                                      child: Center(
+                                        child: Text('NEXT',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6!
+                                                .copyWith(color: Colors.white)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Column slide12(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 8.h,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 5.h,
+            decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5), topRight: Radius.circular(5))),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            // height: 720.h,
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 3))
+            ], color: Colors.white),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Form(
+                    key: _formKey12,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          'Pembangunan Keluarga',
+                          style: GoogleFonts.inter(
+                              fontSize: 18.sp,
+                              color: AppColor.textColor,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Text('Harap Mengisi form ini dengan benar'),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 1.h,
+                          decoration: BoxDecoration(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        pertanyaan29(),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Visibility(child: pertanyaan30(), visible: vP30,),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        pertanyaan31(),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Visibility(child: pertanyaan32(), visible: vP32,),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        Visibility(child: textFieldString('Tuliskan'), visible: vPLainnya,),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                width: 120.w,
+                                child: Material(
+                                  color: Color(0XFF767AE7),
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        vS12 = false;
+                                        vS11 = true;
+                                      });
+                                    },
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                      ),
+                                      child: Center(
+                                        child: Text('BACK',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6!
+                                                .copyWith(color: Colors.white)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 24.w,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                width: 120.w,
+                                child: Material(
+                                  color: Color(0XFF767AE7),
+                                  borderRadius: BorderRadius.circular(9),
+                                  child: InkWell(
+                                    onTap: () {
+                                      if (this
+                                          ._formKey12
+                                          .currentState!
+                                          .validate()) {
+                                        this._formKey12.currentState!.save();
+                                        Get.to(FormCoba());
+                                      }
+                                    },
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 12,
+                                      ),
+                                      child: Center(
+                                        child: Text('NEXT',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6!
+                                                .copyWith(color: Colors.white)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Column pertanyaan1() {
     return Column(
       children: [
@@ -2754,8 +3288,33 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
     );
   }
 
+  Column pertanyaan25() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        textFieldNumber('Luas rumah/bangunan keseluruhan (m2)?', 5),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Column pertanyaan26() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        textFieldNumber('Luas rumah/bangunan keseluruhan (m2)?', 2),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
   InputDecoration decorationField() {
     return InputDecoration(
+        counterText: '',
         fillColor: AppColor.bdtextField,
         filled: true,
         enabledBorder: OutlineInputBorder(
@@ -2777,6 +3336,408 @@ class _FormPembangunanKeluargaState extends State<FormPembangunanKeluarga> {
             borderRadius: BorderRadius.circular(3)),
         isDense: true, // Added this
         contentPadding: EdgeInsets.all(10.w));
+  }
+
+  Column pertanyaan27() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Bahan bakar utama untuk memasak?',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        TypeAheadFormField(
+          textFieldConfiguration: TextFieldConfiguration(
+            controller: this._typeValue27Controller,
+            decoration: InputDecoration(
+                counterText: '',
+                fillColor: AppColor.bdtextField,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 0.8),
+                    borderRadius: BorderRadius.circular(5)),
+                isDense: true, // Added this
+                contentPadding: EdgeInsets.all(10.w)),
+          ),
+          suggestionsCallback: (pattern) {
+            return BahanBakar.getSuggestions(pattern);
+          },
+          itemBuilder: (context, suggestion) {
+            return ListTile(
+              title: Text('${suggestion}'),
+            );
+          },
+          transitionBuilder: (context, suggestionsBox, controller) {
+            return suggestionsBox;
+          },
+          onSuggestionSelected: (suggestion) {
+            this._typeValue27Controller.text = '${suggestion}';
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Field ini harus diisi';
+            }
+          },
+          onSaved: (value) => this.selectedValue27 = value!,
+        ),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Column pertanyaan28() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Kepemilikan rumah/bangunan tempat tinggal?',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        TypeAheadFormField(
+          textFieldConfiguration: TextFieldConfiguration(
+            controller: this._typeValue28Controller,
+            decoration: InputDecoration(
+                counterText: '',
+                fillColor: AppColor.bdtextField,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 0.8),
+                    borderRadius: BorderRadius.circular(5)),
+                isDense: true, // Added this
+                contentPadding: EdgeInsets.all(10.w)),
+          ),
+          suggestionsCallback: (pattern) {
+            return KepemilikanRumah.getSuggestions(pattern);
+          },
+          itemBuilder: (context, suggestion) {
+            return ListTile(
+              title: Text('${suggestion}'),
+            );
+          },
+          transitionBuilder: (context, suggestionsBox, controller) {
+            return suggestionsBox;
+          },
+          onSuggestionSelected: (suggestion) {
+            this._typeValue28Controller.text = '${suggestion}';
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Field ini harus diisi';
+            }
+          },
+          onSaved: (value) => this.selectedValue28 = value!,
+        ),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Column pertanyaan29() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Keluarga pernah memperoleh/mendengar/melihat pesan/informasi program kependudukan, Keluarga Berencana dan Pembangunan Keluarga dari media?',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        DropdownButtonFormField(
+            decoration: decorationField(),
+            style: TextStyle(fontSize: 12.sp, color: Colors.black),
+            dropdownColor: AppColor.bdtextField,
+            value: selectedValue29,
+            onChanged: (String? newValue) {
+              setState(() {
+                selectedValue29 = newValue!;
+                if (selectedValue29 == 'Tidak') {
+                  vP30 = false;
+                }else{
+                  vP30 = true;
+                }
+              });
+            },
+            onSaved: (value) {
+              selectedValue29 = value.toString();
+            },
+            items: dropdownItems),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Column pertanyaan30() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Jika ya, darimana informasi tersebut diperoleh',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        TypeAheadFormField(
+          textFieldConfiguration: TextFieldConfiguration(
+            controller: this._typeValue30Controller,
+            decoration: InputDecoration(
+                counterText: '',
+                fillColor: AppColor.bdtextField,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 0.8),
+                    borderRadius: BorderRadius.circular(5)),
+                isDense: true, // Added this
+                contentPadding: EdgeInsets.all(10.w)),
+          ),
+          suggestionsCallback: (pattern) {
+            return Media.getSuggestions(pattern);
+          },
+          itemBuilder: (context, suggestion) {
+            return ListTile(
+              title: Text('${suggestion}'),
+            );
+          },
+          transitionBuilder: (context, suggestionsBox, controller) {
+            return suggestionsBox;
+          },
+          onSuggestionSelected: (suggestion) {
+            this._typeValue30Controller.text = '${suggestion}';
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Field ini harus diisi';
+            }
+          },
+          onSaved: (value) => this.selectedValue30 = value!,
+        ),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Column pertanyaan31() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Apakah keluarga pernah memperoleh/mendengar/melihat pesan/informasi program kependudukan, Keluarga Berencana dan Pembangunan Keluarga dari petugas?',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        DropdownButtonFormField(
+            decoration: decorationField(),
+            style: TextStyle(fontSize: 12.sp, color: Colors.black),
+            dropdownColor: AppColor.bdtextField,
+            value: selectedValue31,
+            onChanged: (String? newValue) {
+              setState(() {
+                selectedValue31 = newValue!;
+                if (selectedValue31 == 'Tidak') {
+                  vP32 = false;
+                }else{
+                  vP32 = true;
+                }
+              });
+            },
+            onSaved: (value) {
+              selectedValue31 = value.toString();
+            },
+            items: dropdownItems),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Column pertanyaan32() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Darimana keluarga menerima informasi tersebut?',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 14.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        TypeAheadFormField(
+          textFieldConfiguration: TextFieldConfiguration(
+            controller: this._typeValue32Controller,
+            decoration: InputDecoration(
+                counterText: '',
+                fillColor: AppColor.bdtextField,
+                filled: true,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                    borderRadius: BorderRadius.circular(5)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 0.8),
+                    borderRadius: BorderRadius.circular(5)),
+                isDense: true, // Added this
+                contentPadding: EdgeInsets.all(10.w)),
+          ),
+          suggestionsCallback: (pattern) {
+            return Informasi.getSuggestions(pattern);
+          },
+          itemBuilder: (context, suggestion) {
+            return ListTile(
+              title: Text('${suggestion}'),
+            );
+          },
+          transitionBuilder: (context, suggestionsBox, controller) {
+            return suggestionsBox;
+          },
+          onSuggestionSelected: (suggestion) {
+            if(suggestion.toString() == "10. Lainnya"){
+              this._typeValue32Controller.text = '${suggestion}';
+              setState(() {
+                vPLainnya = true;
+              });
+            }else{
+              setState(() {
+                vPLainnya = false;
+              });
+            }
+            
+          },
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Field ini harus diisi';
+            }
+          },
+          onSaved: (value) => this.selectedValue32 = value!,
+        ),
+        SizedBox(
+          height: 4.h,
+        ),
+      ],
+    );
+  }
+
+  Widget textFieldString(String label) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 12.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        TextFormField(
+          decoration: InputDecoration(
+              fillColor: AppColor.bdtextField,
+              filled: true,
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                  borderRadius: BorderRadius.circular(3)),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                  borderRadius: BorderRadius.circular(3)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(3),),
+              errorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey.withOpacity(0.1),),
+                  borderRadius: BorderRadius.circular(3)),
+              focusedErrorBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.red, width: 0.8),
+                  borderRadius: BorderRadius.circular(3)),
+              isDense: true, // Added this
+              contentPadding: EdgeInsets.all(10.w)),
+          enableInteractiveSelection: false,
+          style: TextStyle(fontSize: 12.sp),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'field ini harus diisi harus diisi';
+            }
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget textFieldNumber(String label, int max) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 12.sp,
+              color: AppColor.textColor),
+        ),
+        DView.spaceHeight(8),
+        TextFormField(
+          decoration: decorationField(),
+          maxLength: max,
+          keyboardType: TextInputType.number,
+          enableInteractiveSelection: false,
+          style: TextStyle(fontSize: 12.sp),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'field ini harus diisi';
+            }
+          },
+        ),
+      ],
+    );
   }
 
   List<DropdownMenuItem<String>> get dropdownItems {

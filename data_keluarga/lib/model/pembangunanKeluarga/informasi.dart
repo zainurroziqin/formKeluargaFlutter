@@ -8,7 +8,8 @@ class Informasi{
     '6. Dokter',
     '7. Bidan/Perawat',
     '8. Perangkat Desa/Kelurahan',
-    '9. Kader/IMP'
+    '9. Kader/IMP',
+    '10. Lainnya'
   ];
 
   static List<String> getSuggestions(String query) {

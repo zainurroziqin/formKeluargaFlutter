@@ -38,14 +38,19 @@ class _KeluargaPageState extends State<KeluargaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back), // you can put Icon as well, it accepts any widget.
+        leading: Icon(Icons
+            .arrow_back), // you can put Icon as well, it accepts any widget.
         title: Text("Your Title"),
         actions: [
-          IconButton(icon : Icon(Icons.arrow_forward), onPressed: (){
-            Get.to(FormKeluargaBerencanaPage2());
-          } ,),
-          
-          SizedBox(width: 10.w,)
+          IconButton(
+            icon: Icon(Icons.arrow_forward),
+            onPressed: () {
+              Get.to(FormKeluargaBerencanaPage2());
+            },
+          ),
+          SizedBox(
+            width: 10.w,
+          )
         ],
       ),
       body: SafeArea(
