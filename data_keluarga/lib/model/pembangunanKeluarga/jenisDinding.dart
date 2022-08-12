@@ -1,4 +1,4 @@
-class AtapRumah{
+class JenisDinding{
   static final List<String> cities = [
     '1. Tembok',
     '2. Kayu/Papan',
